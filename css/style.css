@@ -1,0 +1,24 @@
+.green
+{
+    color: green;
+}
+
+.red
+{
+    color: red;
+}
+
+.container
+{
+    font-family: arial, serif;
+    font-size: 28px;
+    display: flex;
+    justify-content: center;
+}
+
+.center-test
+{
+    width: 100px;
+    height: 75px;
+    background-color: red;
+}

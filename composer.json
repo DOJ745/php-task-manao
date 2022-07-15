@@ -1,0 +1,16 @@
+{
+  "name": "vendor_name/php-task-manao",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "DOJ",
+      "email": "email@example.com"
+    }
+  ],
+  "require": {
+    "firebase/php-jwt": "v6.2.0",
+    "eftec/bladeone": "4.5.4"
+  }
+}
