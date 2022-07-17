@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
+@section('title', 'Sign in')
+
 @section('content')
-    <p>Index page: {{ $variable1 }}</p>
+    <p>Log in</p>
     <form>
 
     </form>
