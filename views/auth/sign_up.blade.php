@@ -60,6 +60,8 @@
             <input type="text" id="name-field"
                    class="input-text"
                    required=""
+                   pattern="^[a-zA-Z]+$"
+                   title="Required only 2 symbols!"
                    minlength=2
                    maxlength=2/>
         </label>
