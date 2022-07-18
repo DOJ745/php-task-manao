@@ -7,7 +7,7 @@ use eftec\bladeone\BladeOne;
 $viewsDir = __DIR__ . '\..\views';
 $blade = new BladeOne($viewsDir);
 try {
-    echo $blade->run('auth.sign_up');
+    echo $blade->run('index');
 }
 catch (Exception $e) {
 

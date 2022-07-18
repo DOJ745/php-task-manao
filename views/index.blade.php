@@ -3,9 +3,20 @@
 @section('title', 'Sign up')
 
 @section('content')
-    <p class="center-inner center-text">Input data to register new user</p>
+
+    <!-- User info -->
+
+    <p class="center-inner center-text" hidden="" id="user-login"></p>
     <br/>
-    <form id="main-form" class="center-inner" action="/src/test_ajax.php" method="post">
+    <form id="user-form" class="center-inner" action="" method="post" hidden="">
+        <button type="submit">Log out</button>
+    </form>
+
+    <!-- Sign up form -->
+
+    <p class="center-inner center-text" id="sign-up-label">Input data to register new user</p>
+    <br/>
+    <form id="main-form" class="center-inner" action="/src/auth/reg.php" method="post">
         <label>
             Login:
             <input type="text" id="login-field"
@@ -68,10 +79,38 @@
         <br/>
 
         <button type="submit">Sign up</button>
-        <button id="sign_in_btn" type="button">Sign in</button>
     </form>
 
     <p id="res-msg" hidden="">Response message</p>
 
+    <!-- Sign in form -->
+    <hr/>
+
+    <p class="center-inner center-text" id="sign-in-label">Sign in</p>
+    <form id="sign-in-form" class="center-inner" action="/src/auth/login.php" method="post">
+        <label>
+            Login:
+            <input type="text" id="sign-in-login-field"
+                   class="input-text"
+                   required=""
+                   minlength=6/>
+        </label>
+        <br/>
+
+        <label>
+            Password:
+            <input type="password" id="sign-in-password-field"
+                   class="input-text"
+                   required=""
+                   minlength=6/>
+        </label>
+        <br/>
+
+        <button type="submit">Sign in</button>
+    </form>
+
+    <p id="sign-in-res-msg" hidden="">Response message</p>
+
+    <script type="text/javascript" src="/public/js/auth/sign_up.js"></script>
     <script type="text/javascript" src="/public/js/auth/sign_in.js"></script>
 @endsection
