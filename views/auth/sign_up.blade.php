@@ -5,7 +5,7 @@
 @section('content')
     <p class="center-inner center-text">Input data to register new user</p>
     <br/>
-    <form id="main-form" class="center-inner" action="" method="post">
+    <form id="main-form" class="center-inner" action="/src/test_ajax.php" method="post">
         <label>
             Login:
             <input type="text" id="login-field"
@@ -61,7 +61,7 @@
                    class="input-text"
                    required=""
                    pattern="^[a-zA-Z]+$"
-                   title="Required only 2 symbols!"
+                   title="Required only 2 letters!"
                    minlength=2
                    maxlength=2/>
         </label>
@@ -73,5 +73,5 @@
 
     <p id="res-msg" hidden="">Response message</p>
 
-    <script type="text/javascript" src="/js/auth/sign_in.js"></script>
+    <script type="text/javascript" src="/public/js/auth/sign_in.js"></script>
 @endsection
