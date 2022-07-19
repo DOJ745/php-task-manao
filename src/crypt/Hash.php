@@ -16,4 +16,8 @@ class Hash
     public static function comparePasswords(string $checkPassword, string $hashedPassword): bool {
         return (new Hash)->hashPassword($checkPassword) === $hashedPassword;
     }
+
+    public static function compareHashes(string $hashOne, string $hashTwo): bool {
+        return $hashOne === $hashTwo;
+    }
 }

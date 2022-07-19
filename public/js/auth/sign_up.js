@@ -15,6 +15,7 @@ $(document).ready(function () {
 
     regForm.submit(async function (e) {
         e.preventDefault();
+
         if (repPasswordField.val() !== passwordField.val()) {
             resMsg.html('Passwords are not equal!');
             resMsg.attr('class', 'failed-reg');

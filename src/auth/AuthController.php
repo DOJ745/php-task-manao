@@ -37,7 +37,6 @@ class AuthController
     }
 
     public function loginUser(string $reqBody): string {
-        $result = array('message' => 'Bad request', 'status' => 400);
         $dbController = new DbController();
         $userData = json_decode($reqBody);
 
@@ -55,10 +54,14 @@ class AuthController
             $result = array('message' => 'Wrong password!');
             return json_encode($result);
         }
-        else{
+        else {
             $result = array('message' => "Hello $login");
         }
 
         return json_encode($result);
+    }
+
+    public function logoutUser() : void {
+
     }
 }

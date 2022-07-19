@@ -3,55 +3,26 @@ $(document).ready(function () {
     const loginField = $('#sign-in-login-field');
     const passwordField = $('#sign-in-password-field');
     const resMsg = $('#sign-in-res-msg');
-
     const userMsg = $('#user-login');
-    const userForm = $('#user-form');
+    const authContainer = $('#auth-container');
+    const userInfoContainer = $('#user-info-container');
 
-    const regForm = $('#main-form');
-    const loginRegField = $('#login-field');
-    const passwordRegField = $('#password-field');
-    const repPasswordField = $('#rep-password-field');
-    const emailField = $('#email-field');
-    const nameField = $('#name-field');
-
-    const signUpLabel = $('#sign-up-label');
-    const signInLabel = $('#sign-in-label');
-
-    function hideElements(flag) {
-        if(flag === true) {
-            signUpLabel.attr('hidden', '');
-            signInLabel.attr('hidden', '');
-
-            loginForm.attr('hidden', '');
-            loginField.attr('hidden', '');
-            passwordField.attr('hidden', '');
-
-            regForm.attr('hidden', '');
-            loginRegField.attr('hidden', '');
-            passwordRegField.attr('hidden', '');
-            repPasswordField.attr('hidden', '');
-            emailField.attr('hidden', '');
-            nameField.attr('hidden', '');
+    function showAuthElements(flag) {
+        if(flag === false) {
+            authContainer.attr('hidden', '');
         }
-
-        signUpLabel.removeAttr('hidden');
-        signInLabel.removeAttr('hidden');
-
-        loginForm.removeAttr('hidden');
-        loginField.removeAttr('hidden');
-        passwordField.removeAttr('hidden');
-
-        regForm.removeAttr('hidden');
-        loginRegField.removeAttr('hidden');
-        passwordRegField.removeAttr('hidden');
-        repPasswordField.removeAttr('hidden');
-        emailField.removeAttr('hidden');
-        nameField.removeAttr('hidden');
+        else {
+            authContainer.removeAttr('hidden');
+        }
     }
 
-    function showUserElements() {
-        userForm.removeAttr('hidden');
-        userMsg.removeAttr('hidden');
+    function showUserElements(flag) {
+        if(flag === false) {
+            userInfoContainer.attr('hidden', '');
+        }
+        else {
+            userInfoContainer.removeAttr('hidden');
+        }
     }
 
     function playAnimation(animObject) {
@@ -83,9 +54,10 @@ $(document).ready(function () {
             resMsg.html(result.message);
             playAnimation(resMsg);
         }
-
-        userMsg.html(result.message);
-        hideElements(true);
-        showUserElements();
+        else {
+            userMsg.html(result.message);
+            showAuthElements(false);
+            showUserElements(true);
+        }
     });
 });

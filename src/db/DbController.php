@@ -36,13 +36,13 @@ class DbController
         return false;
     }
 
-    public function isInfoExists(string $fieldKey, string $userValue): bool
+    public function isInfoExists(string $fieldKey, string $userDataValue): bool
     {
         $dbData = $this->getFileData();
         switch ($fieldKey) {
             case 'login':
                 foreach ($dbData->db as $user) {
-                    if ($user->login === $userValue) {
+                    if ($user->login === $userDataValue) {
                         return true;
                     }
                 }
@@ -50,7 +50,7 @@ class DbController
 
             case 'email':
                 foreach ($dbData->db as $user) {
-                    if ($user->email === $userValue) {
+                    if ($user->email === $userDataValue) {
                         return true;
                     }
                 }
@@ -58,7 +58,7 @@ class DbController
 
             case 'password':
                 foreach ($dbData->db as $user) {
-                    if (Hash::comparePasswords($userValue, $user->password)) {
+                    if (Hash::comparePasswords($userDataValue, $user->password)) {
                         return true;
                     }
                 }
