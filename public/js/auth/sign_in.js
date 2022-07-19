@@ -3,27 +3,6 @@ $(document).ready(function () {
     const loginField = $('#sign-in-login-field');
     const passwordField = $('#sign-in-password-field');
     const resMsg = $('#sign-in-res-msg');
-    const userMsg = $('#user-login');
-    const authContainer = $('#auth-container');
-    const userInfoContainer = $('#user-info-container');
-
-    function showAuthElements(flag) {
-        if(flag === false) {
-            authContainer.attr('hidden', '');
-        }
-        else {
-            authContainer.removeAttr('hidden');
-        }
-    }
-
-    function showUserElements(flag) {
-        if(flag === false) {
-            userInfoContainer.attr('hidden', '');
-        }
-        else {
-            userInfoContainer.removeAttr('hidden');
-        }
-    }
 
     function playAnimation(animObject) {
         animObject.css('opacity', '0.1');
@@ -55,9 +34,7 @@ $(document).ready(function () {
             playAnimation(resMsg);
         }
         else {
-            userMsg.html(result.message);
-            showAuthElements(false);
-            showUserElements(true);
+            location.href = '/web/home.php';
         }
     });
 });

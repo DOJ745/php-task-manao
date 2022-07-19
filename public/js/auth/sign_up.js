@@ -18,35 +18,38 @@ $(document).ready(function () {
 
         if (repPasswordField.val() !== passwordField.val()) {
             resMsg.html('Passwords are not equal!');
-            resMsg.attr('class', 'failed-reg');
+            resMsg.attr('class', 'failed-req');
             playAnimation(resMsg);
         }
-
-        let user = {
-            login: loginField.val(),
-            password: passwordField.val(),
-            email: emailField.val(),
-            name: nameField.val()
-        };
-
-        let res = await fetch(regForm.attr('action'), {
-            method: regForm.attr('method'),
-            headers: {
-                'Content-Type': 'application/json;charset=utf-8'
-            },
-            body: JSON.stringify(user)
-        });
-
-        let result = await res.json();
-
-        if(res.status === 400) {
-            resMsg.attr('class', 'failed-req');
-        }
         else {
-            resMsg.attr('class', 'success-req');
-        }
+            resMsg.attr('hidden', '');
 
-        resMsg.html(result.message);
-        playAnimation(resMsg);
+            let user = {
+                login: loginField.val(),
+                password: passwordField.val(),
+                email: emailField.val(),
+                name: nameField.val()
+            };
+
+            let res = await fetch(regForm.attr('action'), {
+                method: regForm.attr('method'),
+                headers: {
+                    'Content-Type': 'application/json;charset=utf-8'
+                },
+                body: JSON.stringify(user)
+            });
+
+            let result = await res.json();
+
+            if(res.status === 400) {
+                resMsg.attr('class', 'failed-req');
+            }
+            else {
+                resMsg.attr('class', 'success-req');
+            }
+
+            resMsg.html(result.message);
+            playAnimation(resMsg);
+        }
     });
 });

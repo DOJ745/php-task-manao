@@ -16,12 +16,17 @@ $blade = new BladeOne($viewsDir);
 $authMiddleware = new AuthMiddleware();
 $jwtOperations = new JwtOperations();
 
+$userData = '';
+
 if($authMiddleware->checkCookie() && $authMiddleware->checkSession()){
     $jwt = $authMiddleware->getJwtFromCookie();
-    $authMiddleware->redirectToHomePage();
+    $userData = $authMiddleware->loadHomePage($jwt);
+}
+else {
+    $authMiddleware->redirectToErrorPage();
 }
 
 try {
-    echo $blade->run('index');
+    echo $blade->run('home', ['helloMsg' => $userData]);
 }
 catch (Exception $e) {}

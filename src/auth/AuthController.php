@@ -55,13 +55,9 @@ class AuthController
             return json_encode($result);
         }
         else {
-            $result = array('message' => "Hello $login");
+            $result = array('message' => "Successful log in");
         }
 
         return json_encode($result);
-    }
-
-    public function logoutUser() : void {
-
     }
 }

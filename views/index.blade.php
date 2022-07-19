@@ -3,24 +3,7 @@
 @section('title', 'Sign up')
 
 @section('content')
-
-    <div id="user-info-container" hidden="">
-
-        <!-- User info -->
-
-        <p class="center-inner center-text" id="user-login"></p>
-        <br/>
-
-        <form id="user-form" class="center-inner" action="/src/auth/logout.php" method="post">
-            <div class="center-text">
-                <button type="submit">Log out</button>
-            </div>
-        </form>
-    </div>
-    <br/>
-
-    <div id="auth-container">
-
+    <div>
         <!-- Sign up form -->
 
         <p class="center-inner center-text">Input data to register new user</p>
@@ -31,6 +14,8 @@
                 <input type="text" id="login-field"
                        class="input-text"
                        required=""
+                       pattern="^\S+$"
+                       title="No spaces allowed!"
                        minlength=6/>
             </label>
             <br/>
@@ -62,7 +47,7 @@
                    1 capitalize letter (P);
                    1 unique symbol (@, #, $, %, ^, +, =, _);
                    1 number;
-                   without space;
+                   without spaces;
                    at least 6 symbols"/>
             </label>
             <br/>
@@ -71,7 +56,9 @@
                 Email:
                 <input type="email" id="email-field"
                        class="input-text"
-                       required=""/>
+                       required=""
+                       pattern="^\S[a-z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+(?:[A-Z]{2}|com|org|ru|net|gov)\b"
+                       title="Require: no spaces; one '@'; one '.'"/>
             </label>
             <br/>
 
@@ -81,7 +68,7 @@
                        class="input-text"
                        required=""
                        pattern="^[a-zA-Z]+$"
-                       title="Required only 2 letters!"
+                       title="Required only 2 letters, no spaces!"
                        minlength=2
                        maxlength=2/>
             </label>
@@ -99,12 +86,16 @@
         <hr/>
 
         <p class="center-inner center-text">Sign in</p>
+        <br/>
+
         <form id="sign-in-form" class="center-inner" action="/src/auth/login.php" method="post">
             <label>
                 Login:
                 <input type="text" id="sign-in-login-field"
                        class="input-text"
                        required=""
+                       pattern="^\S+$"
+                       title="No spaces allowed!"
                        minlength=6/>
             </label>
             <br/>
@@ -128,5 +119,4 @@
 
     <script type="text/javascript" src="/public/js/auth/sign_up.js"></script>
     <script type="text/javascript" src="/public/js/auth/sign_in.js"></script>
-    <script type="text/javascript" src="/public/js/auth/log_out.js"></script>
 @endsection
