@@ -10,7 +10,7 @@ class AuthMiddleware
     private string $COOKIE_NAME = 'ACCESS_TOKEN';
 
     public function checkSession(): bool {
-        if(session_status() === PHP_SESSION_ACTIVE || session_name() !== null){
+        if(session_status() === PHP_SESSION_ACTIVE || isset($_COOKIE["PHPSESSID"])){
             return true;
         }
         return false;
@@ -30,18 +30,17 @@ class AuthMiddleware
     public function redirectToHomePage(): void {
         $url = 'http://localhost:8000/web/home.php';
         ob_start();
-        header('Location: '.$url);
+        header('Location: '. $url);
         ob_end_flush();
         die();
     }
 
-    public function redirectToErrorPage(): void {
-        $url = 'http://localhost:8000/web/error.php';
-        ob_start();
-        header('Location: '.$url);
-        ob_end_flush();
+    public function redirectToErrorPage(int $errorCode, string $relativeErrorPagePath): void {
+        http_response_code($errorCode);
+        include($relativeErrorPagePath);
         die();
     }
+
 
     public function loadHomePage(string $jwt): string {
         $jwtOperations = new JwtOperations();

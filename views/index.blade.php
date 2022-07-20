@@ -54,10 +54,10 @@
 
             <label>
                 Email:
-                <input type="email" id="email-field"
+                <input type="text" id="email-field"
                        class="input-text"
                        required=""
-                       pattern="^\S[a-z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+(?:[A-Z]{2}|com|org|ru|net|gov)\b"
+                       pattern="^\S[a-z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)(?=\S+$)(?:[A-Z]{2}|com|org|ru|net|gov)\b"
                        title="Require: no spaces; one '@'; one '.'"/>
             </label>
             <br/>

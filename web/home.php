@@ -23,7 +23,7 @@ if($authMiddleware->checkCookie() && $authMiddleware->checkSession()){
     $userData = $authMiddleware->loadHomePage($jwt);
 }
 else {
-    $authMiddleware->redirectToErrorPage();
+    $authMiddleware->redirectToErrorPage(401, 'error.php');
 }
 
 try {

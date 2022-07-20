@@ -8,6 +8,10 @@ require_once '..\db\DbController.php';
 
 class AuthController
 {
+    public static function isAjax(): bool {
+        return !empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest';
+    }
+
     public function regUser(string $reqBody): string {
         $result = array('message' => 'Bad request', 'status' => 400);
         $dbController = new DbController();

@@ -21,7 +21,9 @@ $(document).ready(function () {
         let res = await fetch(loginForm.attr('action'), {
             method: loginForm.attr('method'),
             headers: {
-                'Content-Type': 'application/json;charset=utf-8'
+                'Content-Type': 'application/json;charset=utf-8',
+                'credentials': 'same-origin',
+                'X-Requested-With': 'XMLHttpRequest'
             },
             body: JSON.stringify(user)
         });
